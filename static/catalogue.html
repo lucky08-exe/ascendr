@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Catalogue · ascendr.</title>
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/styles.css"></head><body data-page="cat">
+<nav><a class="logo" href="/"><i>a</i><span>ASCENDR<small>discover · learn · rise</small></span></a>
+<div class="links"><a href="/" data-n="home">Home</a><a href="/catalogue" data-n="cat">Explore</a><a href="/#paths">Learning Paths</a></div>
+<div class="r"><a class="btn dk ic" href="#" aria-label="Sign in" title="Sign in"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></a><a class="btn dk" href="/catalogue">Get started</a></div></nav>
+<main class="wrap cat">
+<h1 class="serif">Find your next <span class="it">credential.</span></h1>
+<div class="sw"><input id="q" placeholder="Search by title or topic" autocomplete="off"></div>
+<div class="sug">Try: <span id="sugs"></span></div>
+<div class="fg"><span class="lab">Type</span><span id="ft"></span></div>
+<div class="fg"><span class="lab">Level</span><span id="fl"></span></div>
+<div class="fg"><span class="lab">Duration</span><span id="fd"></span></div>
+<div class="top"><span id="cnt"></span><span>Sort <select id="so"><option value="rel">Relevance</option><option value="da">Shortest</option><option value="dd">Longest</option><option value="ta">A–Z</option><option value="td">Z–A</option></select> <button class="pill" id="clr">Clear</button></span></div>
+<div class="banner" id="ban">Showing placeholder data. Add rows to credentials.db to replace it.</div><div id="list"></div><div class="pager" id="pager"></div>
+</main>
+<footer><div class="wrap"><span class="logo"><i>a</i><span>ASCENDR</span></span><span>© 2026 ascendr. Discover what moves you forward.</span></div></footer>
+<script src="/static/common.js"></script><script src="/static/catalogue.js"></script></body></html>
