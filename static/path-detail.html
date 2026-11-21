@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Learning Roadmap · ascendr.</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=6">
+</head>
+<body data-page="paths">
+  <nav>
+    <a class="logo" href="/"><i>a</i><span>ASCENDR<small>discover · learn · rise</small></span></a>
+    <div class="links">
+      <a href="/" data-n="home">Home</a>
+      <a href="/ai" data-n="ai">Ascendr AI ✦</a>
+      <a href="/paths" data-n="paths" class="on">Learning Paths</a>
+      <a href="/catalogue" data-n="cat">Explore</a>
+    </div>
+    <div class="r">
+      <a class="btn dk ic" href="#" aria-label="Sign in" title="Sign in">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </a>
+      <a class="btn dk" href="/ai">Ascendr AI ✦</a>
+      <button class="btn ic mob-btn" id="mob-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg class="mob-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="mob-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-nav" id="mob-nav" aria-label="Mobile navigation">
+    <a href="/" data-n="home">Home</a>
+    <a href="/ai" data-n="ai">Ascendr AI ✦</a>
+    <a href="/paths" data-n="paths" class="on">Learning Paths</a>
+    <a href="/catalogue" data-n="cat">Explore Credentials</a>
+  </div>
+
+  <main class="wrap path-detail-page">
+    <div class="pd-top-nav">
+      <a href="/paths" class="pd-back">← Back to all learning paths</a>
+    </div>
+
+    <!-- HERO HEADER -->
+    <header class="pd-header reveal" id="pd-header">
+      <div class="loading-state">Loading learning path details...</div>
+    </header>
+
+    <!-- ROADMAP MILESTONES -->
+    <section class="pd-milestones-section">
+      <div class="sh" style="text-align:left;margin-bottom:32px">
+        <div class="lab">✦ Roadmap Sequence</div>
+        <h2 class="serif">Three stages to mastery</h2>
+        <p style="margin:8px 0 0">Each stage builds directly on the previous one. Complete hands-on credentials to demonstrate verified competence.</p>
+      </div>
+
+      <div class="roadmap-timeline" id="pd-timeline">
+        <!-- Rendered via static/path-detail.js -->
+      </div>
+    </section>
+
+    <!-- BRIDGE TO ASCENDR AI -->
+    <div class="path-ai-banner reveal" id="pd-ai-banner">
+      <div>
+        <div class="lab">✦ Personalized Adaptation</div>
+        <h3 class="serif">Need this tailored to your background?</h3>
+        <p>Tell Ascendr AI your existing skills, weekly availability, or preferred tech stack, and get an adapted version of this roadmap instantly.</p>
+      </div>
+      <a class="btn glow" id="pd-ai-btn" href="/ai" style="height:48px;padding:0 24px;white-space:nowrap;font-weight:600">Customize with Ascendr AI ✦</a>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="logo"><i>a</i><span>ASCENDR</span></span>
+      <span>© 2026 ascendr. Discover what moves you forward.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="/static/common.js"></script>
+  <script src="/static/path-detail.js?v=2"></script>
+</body>
+</html>
