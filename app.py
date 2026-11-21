@@ -174,6 +174,22 @@ def stats():
     return {"total": total, "by_type": by, "avg_duration_minutes": round(avg or 0), "placeholder": ph}
 
 
+from paths_data import get_paths, get_path_by_slug
+
+@app.get("/api/paths")
+def api_paths():
+    p = get_paths()
+    return {"total": len(p), "items": p, "paths": p}
+
+
+@app.get("/api/paths/{slug}")
+def api_path_detail(slug: str):
+    p = get_path_by_slug(slug)
+    if not p:
+        raise HTTPException(404, "Learning path not found")
+    return p
+
+
 @app.get("/", include_in_schema=False)
 def home():
     return FileResponse(STATIC / "index.html")
@@ -182,6 +198,24 @@ def home():
 @app.get("/catalogue", include_in_schema=False)
 def catalogue():
     return FileResponse(STATIC / "catalogue.html")
+
+
+@app.get("/ai", include_in_schema=False)
+def ai_studio():
+    return FileResponse(STATIC / "ai.html")
+
+
+@app.get("/paths", include_in_schema=False)
+def paths_page():
+    return FileResponse(STATIC / "paths.html")
+
+
+@app.get("/paths/{slug}", include_in_schema=False)
+def path_detail_page(slug: str):
+    p = get_path_by_slug(slug)
+    if not p:
+        return FileResponse(STATIC / "paths.html")
+    return FileResponse(STATIC / "path-detail.html")
 
 
 app.mount("/static", StaticFiles(directory=STATIC), name="static")

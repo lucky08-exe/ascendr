@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ascendr AI · Intelligent Learning Guidance</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=6">
+</head>
+<body data-page="ai">
+  <nav>
+    <a class="logo" href="/"><i>a</i><span>ASCENDR<small>discover · learn · rise</small></span></a>
+    <div class="links">
+      <a href="/" data-n="home">Home</a>
+      <a href="/ai" data-n="ai" class="on">Ascendr AI ✦</a>
+      <a href="/paths" data-n="paths">Learning Paths</a>
+      <a href="/catalogue" data-n="cat">Explore</a>
+    </div>
+    <div class="r">
+      <a class="btn dk ic" href="#" aria-label="Sign in" title="Sign in">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </a>
+      <button class="btn ic mob-btn" id="mob-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg class="mob-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="mob-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-nav" id="mob-nav" aria-label="Mobile navigation">
+    <a href="/" data-n="home">Home</a>
+    <a href="/ai" data-n="ai" class="on">Ascendr AI ✦</a>
+    <a href="/paths" data-n="paths">Learning Paths</a>
+    <a href="/catalogue" data-n="cat">Explore Credentials</a>
+  </div>
+
+  <main class="wrap ai-container">
+    <div class="ai-header">
+      <div class="lab">✦ Intelligent Guidance Consultant</div>
+      <h1 class="serif">Design your path with <span class="it">Ascendr AI.</span></h1>
+      <p>Discuss your goals, background, and time commitment. Ascendr AI diagnoses where to start and constructs a sequenced, certified learning journey.</p>
+    </div>
+
+    <!-- STUDIO WORKSPACE -->
+    <div class="studio-grid">
+      <!-- LEFT: CONSULTATION DIALOGUE -->
+      <section class="consult-panel" aria-label="Consultation stream">
+        <div class="panel-head">
+          <div class="ai-badge"><i>✦</i> <span>Ascendr Mentor</span></div>
+          <span class="live-status">Active Guidance</span>
+        </div>
+
+        <div class="chat-stream" id="dialogue">
+          <!-- Initial AI message -->
+          <div class="msg ai">
+            <div class="avatar">✦</div>
+            <div class="bubble">
+              <p>Welcome to Ascendr. Rather than sifting through hundreds of courses, tell me what you want to achieve.</p>
+              <p>Are you looking to break into a new domain, build a specific project, or earn a recognized certification?</p>
+              <div class="quick-chips" id="starters">
+                <button data-intent="ai">⚡ Break into AI & Machine Learning</button>
+                <button data-intent="cloud">☁️ Cloud Solutions Architect</button>
+                <button data-intent="backend">🛠️ Backend Development & APIs</button>
+                <button data-intent="data">📊 Data Analytics & SQL</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- INPUT BAR -->
+        <form class="studio-input" id="consult-form">
+          <input id="user-input" placeholder="Describe your goal, e.g. 'I know basic Python and want to learn Kubernetes'..." autocomplete="off">
+          <button type="submit" class="btn dk" aria-label="Send message">
+            <span>Send</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </form>
+      </section>
+
+      <!-- RIGHT: DYNAMIC BLUEPRINT CANVAS -->
+      <section class="blueprint-panel" aria-label="Live learning roadmap">
+        <div class="panel-head">
+          <div class="ai-badge">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+            <span>Generated Learning Blueprint</span>
+          </div>
+          <span class="step-count" id="blueprint-status">Select a goal</span>
+        </div>
+
+        <div id="blueprint-content" class="blueprint-canvas">
+          <div class="empty-blueprint">
+            <div class="empty-icon">⇢</div>
+            <h3>Your roadmap will appear here</h3>
+            <p>Pick a goal or message Ascendr AI on the left. We'll assemble a sequenced 3-stage roadmap with vetted credentials and practical milestones.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <span class="logo"><i>a</i><span>ASCENDR</span></span>
+      <span>© 2026 ascendr. Guided learning for what matters.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="/static/common.js"></script>
+  <script src="/static/ai.js"></script>
+</body>
+</html>
