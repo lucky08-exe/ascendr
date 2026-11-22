@@ -41,31 +41,16 @@
 
   document.title = `${pathData.title} · Roadmap · ascendr.`;
 
+  const certSlot = document.getElementById("pd-cert-slot");
+  if (certSlot) {
+    certSlot.innerHTML = pathData.certification ? `<span class="pd-badge">${esc(pathData.certification)}</span>` : '';
+  }
+
   // Render Header
   if (headerEl) {
     headerEl.innerHTML = `
-      <div class="pd-hero-top">
-        <span class="lab">✦ STRUCTURED JOURNEY</span>
-        <span class="pd-badge">${esc(pathData.certification || "Industry Aligned")}</span>
-      </div>
       <h1 class="serif pd-hero-title">${esc(pathData.title)}</h1>
       <p class="pd-hero-sub">${esc(pathData.tagline)}</p>
-
-      <div class="pd-meta-bar">
-        <span class="pd-meta-item"><strong>Time Commitment:</strong> ${esc(pathData.duration)}</span>
-        <span class="pd-meta-item"><strong>Skill Level:</strong> ${esc(pathData.level)}</span>
-        <span class="pd-meta-item"><strong>Milestones:</strong> 3 Progressive Stages</span>
-      </div>
-
-      <div class="pd-outcome-card">
-        <div class="lab" style="color:var(--blue)">Target Competency & Outcome</div>
-        <p>${esc(pathData.outcome)}</p>
-      </div>
-
-      <div class="pd-hero-actions">
-        <a class="btn dk" href="#stage-1">Start Stage 1 ↓</a>
-        <a class="btn" href="/catalogue?q=${encodeURIComponent(pathData.stages[0]?.search || pathData.title)}">Browse All Related Credentials →</a>
-      </div>
     `;
   }
 
@@ -114,7 +99,8 @@
       try {
         const query = stg.search || "cloud";
         const credRes = await api(`/api/credentials?q=${encodeURIComponent(query)}&page_size=3`);
-        const items = (credRes && credRes.items) ? credRes.items : [];
+        const rawItems = (credRes && credRes.items) ? credRes.items : [];
+        const items = rawItems.filter(c => !c.id?.startsWith("placeholder_") && !c.title?.startsWith("Placeholder:"));
 
         if (!items.length) {
           stageCredsContainer.innerHTML = `<div class="sc-empty">Credentials available in full catalogue.</div>`;
@@ -141,4 +127,24 @@
       }
     });
   }
+
+  // Smooth scroll handler for anchor links (e.g. Start Stage 1 -> #stages)
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest('a[href^="#"]');
+    if (!link) return;
+    const targetId = link.getAttribute("href");
+    if (targetId && targetId.length > 1) {
+      const target = document.querySelector(targetId);
+      if (target) {
+        e.preventDefault();
+        target.classList.add("in");
+        target.querySelectorAll(".reveal").forEach(el => el.classList.add("in"));
+        if (window.lenis && typeof window.lenis.scrollTo === "function") {
+          window.lenis.scrollTo(target, { offset: -80, duration: 1.1 });
+        } else {
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+      }
+    }
+  });
 })();
