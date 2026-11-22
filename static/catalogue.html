@@ -1,27 +1,124 @@
 <!DOCTYPE html>
-<html lang="en"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Catalogue · ascendr.</title>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/styles.css?v=6"></head><body data-page="cat">
-<nav><a class="logo" href="/"><i>a</i><span>ASCENDR<small>discover · learn · rise</small></span></a>
-<div class="links"><a href="/" data-n="home">Home</a><a href="/ai" data-n="ai">Ascendr AI ✦</a><a href="/paths" data-n="paths">Learning Paths</a><a href="/catalogue" data-n="cat">Explore</a></div>
-<div class="r"><a class="btn dk ic" href="#" aria-label="Sign in" title="Sign in"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></a><a class="btn dk" href="/ai">Ascendr AI ✦</a><button class="btn ic mob-btn" id="mob-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false"><svg class="mob-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg><svg class="mob-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button></div></nav>
-<div class="mob-nav" id="mob-nav" aria-label="Mobile navigation">
-<a href="/" data-n="home">Home</a>
-<a href="/ai" data-n="ai">Ascendr AI ✦</a>
-<a href="/#paths">Learning Paths</a>
-<a href="/catalogue" data-n="cat">Explore Credentials</a>
-</div>
-<main class="wrap cat">
-<h1 class="serif">Find your next <span class="it">credential.</span></h1>
-<div class="sw"><input id="q" placeholder="Search by title or topic" autocomplete="off"></div>
-<div class="sug">Try: <span id="sugs"></span></div>
-<div class="fg"><span class="lab">Type</span><span id="ft"></span></div>
-<div class="fg"><span class="lab">Level</span><span id="fl"></span></div>
-<div class="fg"><span class="lab">Duration</span><span id="fd"></span></div>
-<div class="top"><span id="cnt"></span><span>Sort <select id="so"><option value="rel">Relevance</option><option value="da">Shortest</option><option value="dd">Longest</option><option value="ta">A–Z</option><option value="td">Z–A</option></select> <button class="pill" id="clr">Clear</button></span></div>
-<div class="banner" id="ban">Showing placeholder data. Add rows to credentials.db to replace it.</div><div id="list"></div><div class="pager" id="pager"></div>
-</main>
-<footer><div class="wrap"><span class="logo"><i>a</i><span>ASCENDR</span></span><span>© 2026 ascendr. Discover what moves you forward.</span></div></footer>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script><script src="/static/common.js"></script><script src="/static/catalogue.js"></script></body></html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Explore Credentials · ascendr.</title>
+  <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/styles.css?v=12">
+</head>
+<body data-page="cat">
+  <nav>
+    <a class="logo" href="/"><i>a</i><span>ASCENDR<small>discover · learn · rise</small></span></a>
+    <div class="links">
+      <a href="/" data-n="home">Home</a>
+      <a href="/ai" data-n="ai">Ascendr AI ✦</a>
+      <a href="/paths" data-n="paths">Learning Paths</a>
+      <a href="/catalogue" data-n="cat" class="on">Explore</a>
+    </div>
+    <div class="r">
+      <a class="btn dk ic" href="#" aria-label="Sign in" title="Sign in">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>
+      </a>
+      <button class="btn ic mob-btn" id="mob-menu-btn" aria-label="Toggle navigation menu" aria-expanded="false">
+        <svg class="mob-open" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg class="mob-close" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div class="mob-nav" id="mob-nav" aria-label="Mobile navigation">
+    <a href="/" data-n="home">Home</a>
+    <a href="/ai" data-n="ai">Ascendr AI ✦</a>
+    <a href="/paths" data-n="paths">Learning Paths</a>
+    <a href="/catalogue" data-n="cat" class="on">Explore Credentials</a>
+  </div>
+
+  <main class="wrap explore-page">
+    <!-- TOP SEARCH BAR & TRENDING CHIPS -->
+    <div class="search-hero">
+      <div class="search-input-wrap">
+        <svg class="search-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input id="q" placeholder="Search by skill, product (e.g. BigQuery, Kubernetes, GenAI)..." autocomplete="off">
+      </div>
+      <div class="trending-bar">
+        <span class="trending-label">TRENDING:</span>
+        <div class="trending-pills" id="sugs">
+          <!-- Populated via catalogue.js -->
+        </div>
+      </div>
+    </div>
+
+    <!-- MAIN TWO-COLUMN EXPLORE WORKSPACE -->
+    <div class="explore-workspace">
+      <!-- LEFT: FILTERS SIDEBAR -->
+      <aside class="filters-sidebar">
+        <div class="sidebar-head">
+          <div class="sidebar-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="4" y1="21" x2="4" y2="14"/><line x1="4" y1="10" x2="4" y2="3"/><line x1="12" y1="21" x2="12" y2="12"/><line x1="12" y1="8" x2="12" y2="3"/><line x1="20" y1="21" x2="20" y2="16"/><line x1="20" y1="12" x2="20" y2="3"/><line x1="1" y1="14" x2="7" y2="14"/><line x1="9" y1="8" x2="15" y2="8"/><line x1="17" y1="16" x2="23" y2="16"/></svg>
+            <span>Filters</span>
+          </div>
+          <button class="clear-link" id="clr">Clear all</button>
+        </div>
+
+        <!-- DIFFICULTY LEVEL -->
+        <div class="filter-group" style="margin-top:8px;padding-top:0;border-top:none">
+          <div class="fg-title">DIFFICULTY LEVEL</div>
+          <div class="filter-list" id="fl"></div>
+        </div>
+
+        <!-- DURATION -->
+        <div class="filter-group">
+          <div class="fg-title">DURATION</div>
+          <div class="filter-list" id="fd"></div>
+        </div>
+      </aside>
+
+      <!-- RIGHT: CREDENTIALS CATALOGUE MAIN -->
+      <div class="catalog-content">
+        <div class="catalog-topbar">
+          <span class="cnt-text" id="cnt">Showing credentials...</span>
+          <div class="sort-box">
+            <span class="sort-label">SORT:</span>
+            <select id="so">
+              <option value="rel">Relevance / Best Match</option>
+              <option value="da">Shortest Duration</option>
+              <option value="dd">Longest Duration</option>
+              <option value="ta">Title: A–Z</option>
+              <option value="td">Title: Z–A</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="banner" id="ban">Showing placeholder data. Add rows to credentials.db to replace it.</div>
+
+        <!-- 3-COLUMN CREDENTIALS GRID -->
+        <div class="credentials-grid" id="list">
+          <div class="loading-state">Loading credentials...</div>
+        </div>
+
+        <div class="pager" id="pager"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- QUICK VIEW MODAL -->
+  <div class="modal-backdrop" id="cred-modal" style="display:none">
+    <div class="modal-card">
+      <button class="modal-close" id="modal-close" aria-label="Close modal">&times;</button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="wrap">
+      <span class="logo"><i>a</i><span>ASCENDR</span></span>
+      <span>© 2026 ascendr. Discover what moves you forward.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+  <script src="/static/common.js"></script>
+  <script src="/static/catalogue.js?v=5"></script>
+</body>
+</html>
